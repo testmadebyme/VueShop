@@ -1,24 +1,30 @@
 <template>
-  <!-- <div class="cart">
+  <div class="cart">
     <h1>This is an Shoping Cart</h1>
-  </div> -->
 
-  <div>
-  <b-card
-    title="Card Title"
-    img-src="https://picsum.photos/600/300/?image=25"
-    img-alt="Image"
-    img-top
-    tag="article"
-    style="max-width: 20rem;"
-    class="mb-2"
-  >
-    <b-card-text>
-      Some quick example text to build on the card title and make up the bulk of the card's content.
-    </b-card-text>
+    <CartItemCard
+     v-for="product in products"
+     :key="product.id"
+     :product="product"/> 
 
-    <b-button href="#" variant="primary">Go somewhere</b-button>
-  </b-card>
-</div>
-  
+    <CartSummaryPaymentCard
+    :products="products"/>
+ </div> 
 </template>
+
+<script>
+import CartItemCard from '../components/card/CartItemCard.vue'
+import CartSummaryPaymentCard from '../components/card/CartSummaryPaymentCard.vue'
+
+export default {
+    components: {
+        CartItemCard, CartSummaryPaymentCard
+    },
+    computed: {
+        products() {
+            return this.$store.getters.cartItems
+        }
+    }
+    
+}
+</script>

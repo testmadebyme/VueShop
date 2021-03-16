@@ -1,6 +1,7 @@
 const items = [
     {
         id: 1,
+        image: "1.jpg",
         name: "Kitty",
         price: 55,
         category: "Toys",
