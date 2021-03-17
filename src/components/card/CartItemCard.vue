@@ -16,11 +16,12 @@
         <b-th>
             <b-button variant="success" class="remove" @click="removeFromCart()"> -- </b-button>
             {{ product_total }}
+            
             <b-button variant="success" class="add" @click="addToCart()"> + </b-button>
         </b-th>
         <b-th variant="success">$ {{item_cost.toFixed(2)}}</b-th>
         <b-th>
-            <b-button variant="danger">Delete</b-button>
+            <b-button variant="danger" class="delete" @click="deleteFromCart(index, item.quantity)">Delete</b-button>
         </b-th> 
       </b-tr>
     </b-tbody>
@@ -48,6 +49,18 @@ export default {
     removeFromCart() {
       this.$store.commit("removeFromCart", this.product);
     },
+    // deleteFromCart(){
+    //     this.$store.commit('deleteFromCart', this.product.id )
+    //     // return null
+    //     console.log(this.product.id)
+    // },
+   
+      deleteFromCart(index) {
+        this.$store.dispatch('deleteFromCart', index)
+        },
+    
+
+
   },
     computed: {
         description() {
@@ -57,8 +70,8 @@ export default {
             return this.product.price*this.product.quantity
         },
         product_total() {
-      return this.$store.getters.productQuantity(this.product);
-      // return 6
+          return this.$store.getters.productQuantity(this.product);
+  
     },
     }
 }

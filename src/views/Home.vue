@@ -41,6 +41,7 @@ export default {
         product_drawer: true
       }
     }
+    
   },
     methods: {
     viewProduct(product) {

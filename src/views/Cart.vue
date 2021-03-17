@@ -3,9 +3,11 @@
     <h1>This is an Shoping Cart</h1>
 
     <CartItemCard
-     v-for="product in products"
+     v-for="(product) in products"
      :key="product.id"
-     :product="product"/> 
+     :product="product"
+     
+     /> 
 
     <CartSummaryPaymentCard
     :products="products"/>
@@ -24,6 +26,11 @@ export default {
         products() {
             return this.$store.getters.cartItems
         }
+    },
+    methods: {
+        deleteFromCart(index) {
+        this.$store.dispatch('deleteFromCart', index)
+        },
     }
     
 }

@@ -1,18 +1,20 @@
 <template>
-  <div>
+  <div class="shop-page">
+    
     <div class="card-item">
+    
       <b-card
        
         img-alt="Image-item"
         img-top
-        tag="article"
+        tag="cart"
         style="max-width: 20rem"
         class="mb-2"
       >
+      <img class="product-image" :src="require('../../assets/' +product.image  )">
         <b-card-title>{{ product.name }}</b-card-title>
-
+        
         <b-card-body>
-           <!-- <img :src="require('../../assets/' + product.image )"> -->
           <b-card-text>{{ description }}</b-card-text>
           <b-card-price> Price: $ {{ product.price.toFixed(2) }} </b-card-price>
         </b-card-body>
@@ -20,12 +22,8 @@
         <b-button v-b-modal.modal-scoped
           class="view-product-button"
           @click="$emit('view-product', product)"
-          variant="primary"
-          >By Product</b-button>
-
-              <!-- <b-button class="mb-2" variant="primary" @click="$bvToast.show('view-product', product)">
-      Show toast
-    </b-button> -->
+          variant="success"
+          >Buy Product</b-button>
       
       </b-card>
     </div>  
@@ -48,8 +46,16 @@ export default {
 </script>
 
 <style lang="scss">
+.shop-page {
+  margin: 0.5rem;
+}
 .card-item {
   margin: 1rem;
+}
+
+.product-image {
+  width: 210px;
+  height: 360px;
 }
 </style>
 
