@@ -3,10 +3,6 @@
         <h3>Cart Total: ${{cart_total.toFixed(2)}}</h3>
         <b-button variant="danger" class="delete" @click="removeAllCart()">Remove All Shopping Cart</b-button>
     </div>
-    
-    <!-- <button class="view-product-button"> Pay Credit Card
-
-    </button> -->
 </template>
 
 <script>

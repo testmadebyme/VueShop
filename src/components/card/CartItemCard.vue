@@ -1,5 +1,4 @@
 <template>
-
 <div class="shoping-card">
  <b-card>
   <b-table-simple hover small caption-top responsive>
@@ -11,8 +10,8 @@
       <b-tr>
         <b-th rowspan="3">{{product.name}}</b-th>
         <b-th>{{description}}</b-th>
-        <!-- <b-th>{{product.quantity}}
-        </b-th> -->
+        <b-th>{{product.quantity}}
+        </b-th>
         <b-th>
             <b-button variant="success" class="remove" @click="removeFromCart()"> -- </b-button>
             {{ product_total }}
@@ -21,7 +20,7 @@
         </b-th>
         <b-th variant="success">$ {{item_cost.toFixed(2)}}</b-th>
         <b-th>
-            <b-button variant="danger" class="delete" @click="deleteFromCart(index, item.quantity)">Delete</b-button>
+            <b-button variant="danger" class="delete" @click="deleteFromCart(product)">Delete</b-button>
         </b-th> 
       </b-tr>
     </b-tbody>
@@ -49,17 +48,11 @@ export default {
     removeFromCart() {
       this.$store.commit("removeFromCart", this.product);
     },
-    // deleteFromCart(){
-    //     this.$store.commit('deleteFromCart', this.product.id )
-    //     // return null
-    //     console.log(this.product.id)
-    // },
    
-      deleteFromCart(index) {
-        this.$store.dispatch('deleteFromCart', index)
-        },
+    deleteFromCart(product) {
+      this.$store.commit('deleteFromCart', product);
+    }
     
-
 
   },
     computed: {

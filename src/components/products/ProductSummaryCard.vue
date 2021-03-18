@@ -56,6 +56,11 @@ export default {
 .product-image {
   width: 210px;
   height: 360px;
+  margin-bottom: 1rem;
+}
+
+#b-card-title {
+    font-weight: bold;
 }
 </style>
 

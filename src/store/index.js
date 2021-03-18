@@ -58,37 +58,21 @@ export default new Vuex.Store({
 
     },
 
-    deleteFromCart(state) {
+    deleteFromCart(state, product) {
 
-      // let item = state.cart.find(i => i.id === product.id)
+      let index = state.cart.indexOf(product);
 
-      // let id = state.cart[index].key
-          // qty = state.cart[index].quantity,
-          // product = state.cart.find(i => i.key === id);
-          // state.cart.splice(index, 1);
-          // product.P += qty;
+      if (index > -1) {
+        let product = state.cart[index];
+        state.cartTotal -= product.quantity;
 
+        state.cart.splice(index, 1);
+      }
 
       console.log(state.cart)
       updateLocalStorage(state.cart)
     },
-    // deleteFromCart(id){
-    //   for (let index =0; index <this.cart.length; index++) {
-    //     if(this.cart[index].id == id){
-    //       this.cart.splice(index, 1);
-    //       localStorage.setItem('products', JSON.stringify(this.cart))
-    //     }
-    //     console.log(index)
-    //   }
-
-    //   for (const key in this.cart) {
-    //     this.cart[key].cart=false
-    //     this.cart[key].quantity=1
-    //   }
-    //   localStorage.setItem('products', JSON.stringify(this.cart))
-    //   this.$refs['modal-1'].hide()
-
-    // },
+ 
     updateCartFromLocalStorage(state) {
       const cart = localStorage.getItem('cart')
       if (cart) {
