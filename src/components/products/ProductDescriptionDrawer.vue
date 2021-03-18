@@ -31,7 +31,7 @@
           Сontinue Shopping
         </b-button>
         <div class="cart-total" v-if="product_total">
-        <b-button  size="sm"  variant="danger" @click="product_total()">
+        <b-button  size="sm" href="/cart"  variant="danger" @click="product_total()">
           Order Buy 
         </b-button>
         </div>
@@ -75,8 +75,9 @@ export default {
 .button-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
-.table th {
+.table th, .tr, .delete {
   vertical-align: middle !important;
 }
 

@@ -33,8 +33,10 @@ export default new Vuex.Store({
       if (item) {
         item.quantity++
       } else {
-        state.cart.push({ ...product, quantity: 1 })
+        state.cart.push({ ...product, quantity: 1 });
+        
       }
+      state.cartCount++;
       updateLocalStorage(state.cart)
     },
     removeFromCart(state, product) {
