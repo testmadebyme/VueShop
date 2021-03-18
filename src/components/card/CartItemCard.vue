@@ -1,5 +1,5 @@
 <template>
-<div class="shoping-card">
+<div class="shopping-card">
  <b-card>
   <b-table-simple hover small caption-top responsive>
     <b-tbody>

@@ -1,6 +1,6 @@
 <template>
   <div class="cart">
-    <h1>This is an Shoping Cart</h1>
+    <h1>This is an Shopping Cart</h1>
 
     <CartItemCard
      v-for="(product) in products"
